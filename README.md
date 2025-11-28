@@ -15,11 +15,12 @@ Professional website template for cleaning businesses and service companies.
 
 ## 🛠️ Technologies
 
-- **HTML5** - Semantic structure
-- **CSS3** - Modern styles (Grid/Flexbox)
-- **JavaScript** - Interactivity
-- **Font Awesome** - Icons
-- **Google Fonts** - Typography
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+![Font Awesome](https://img.shields.io/badge/Font%20Awesome-339AF0?style=for-the-badge&logo=fontawesome&logoColor=white)
+
+
 ## 📁 Project Structure
 ```
 PrimeClean Solutions
@@ -29,13 +30,6 @@ PrimeClean Solutions
 │  ├─ fonts
 │  ├─ icons
 │  ├─ img
-│  │  ├─ Hero1.jpg
-│  │  ├─ Hero2.jpg
-│  │  ├─ Team.png
-│  │  ├─ TeamMember1.jpg
-│  │  ├─ TeamMember2.jpg
-│  │  ├─ TeamMember3.jpg
-│  │  └─ TeamMember4.jpg
 │  └─ js
 │     └─ main.js
 ├─ index.html
@@ -44,7 +38,7 @@ PrimeClean Solutions
 ```
 
 ## Live Demo
-[View Live Demo](https://primeClean01.netlify.app/)
+[🚀 View Live Demo](https://primeClean01.netlify.app/)
 
 ## 🚀 Quick Start
 
