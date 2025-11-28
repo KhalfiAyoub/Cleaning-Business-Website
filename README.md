@@ -20,6 +20,28 @@ Professional website template for cleaning businesses and service companies.
 - **JavaScript** - Interactivity
 - **Font Awesome** - Icons
 - **Google Fonts** - Typography
+## 📁 Project Structure
+```
+PrimeClean Solutions
+├─ assets
+│  ├─ css
+│  │  └─ style.css
+│  ├─ fonts
+│  ├─ icons
+│  ├─ img
+│  │  ├─ Hero1.jpg
+│  │  ├─ Hero2.jpg
+│  │  ├─ Team.png
+│  │  ├─ TeamMember1.jpg
+│  │  ├─ TeamMember2.jpg
+│  │  ├─ TeamMember3.jpg
+│  │  └─ TeamMember4.jpg
+│  └─ js
+│     └─ main.js
+├─ index.html
+└─ README.md
+
+```
 
 ## Live Demo
 [View Live Demo](https://primeClean01.netlify.app/)
