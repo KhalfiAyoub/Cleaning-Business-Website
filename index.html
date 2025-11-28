@@ -1,0 +1,1258 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="PrimeClean Solutions - Service de nettoyage professionnel au Maroc. Nettoyage résidentiel, commercial, bureaux, vitres et plus encore.">
+    <title>PrimeClean Solutions - Nettoyage Professionnel au Maroc</title>
+    
+    <!-- Styles CSS -->
+    <style>
+        /* Importation des polices et icônes */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500;700&display=swap');
+        @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css');
+        
+        /* Variables CSS pour une gestion cohérente des styles */
+        :root {
+            --primary-color: #007A5E;
+            --secondary-color: #A0D2EB;
+            --background-white: #FFFFFF;
+            --background-soft-green: #F0F8F5;
+            --background-light-grey: #F8F9FA;
+            --text-dark: #212529;
+            --text-light: #6C757D;
+            --border-radius-md: 12px;
+            --border-radius-lg: 20px;
+            --shadow-sm: 0 4px 15px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 8px 25px rgba(0, 0, 0, 0.08);
+            --font-primary: 'Inter', sans-serif;
+            --font-secondary: 'Poppins', sans-serif;
+            --transition-smooth: all 0.3s ease-in-out;
+        }
+        
+        /* Reset et styles de base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            color: var(--text-dark);
+            background-color: var(--background-white);
+            margin: 0;
+            padding-top: 90px;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-header h2 {
+            font-family: var(--font-secondary);
+            font-size: 38px;
+            margin-bottom: 10px;
+            color: var(--text-dark);
+        }
+
+        .section-header p {
+            font-size: 18px;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        /* Styles des boutons */
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            border-radius: var(--border-radius-md);
+            text-decoration: none;
+            font-weight: 500;
+            font-family: var(--font-primary);
+            transition: var(--transition-smooth);
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+            background-color: #006349;
+        }
+
+        .btn-secondary {
+            background-color: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+            border: 2px solid white;
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background-color: white;
+            color: var(--primary-color);
+        }
+
+        /* Animations */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .animate-on-scroll.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* En-tête */
+        .header {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            right: 20px;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 11px 30px;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition-smooth);
+        }
+
+        .header.scrolled {
+            top: 10px;
+            padding: 12px 25px;
+            box-shadow: var(--shadow-md);
+        }
+
+        .logo {
+            font-family: var(--font-secondary);
+            font-size: 24px;
+            color: var(--primary-color);
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo i {
+            font-size: 28px;
+        }
+
+        /* Navigation */
+        .nav-links {
+            display: flex;
+            gap: 5px;
+        }
+
+        .nav-links a {
+            position: relative;
+            padding: 8px 18px;
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border-radius: 8px;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 5px;
+            left: 18px;
+            width: 0%;
+            height: 2px;
+            background-color: var(--primary-color);
+            transition: width 0.3s ease-in-out;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+            background-color: transparent;
+            transform: translateY(-2px);
+        }
+
+        .nav-links a:hover::after {
+            width: calc(100% - 36px);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: var(--primary-color);
+            cursor: pointer;
+        }
+        
+        /* Section Hero */
+        #home {
+            background: linear-gradient(90deg, rgba(0, 40, 30, 0.8) 0%, rgba(0, 40, 30, 0.5) 45%, rgba(0, 0, 0, 0) 100%), url('img/Team 2.jpg');
+            background-size: cover;
+            background-position: right top;
+            background-repeat: no-repeat;
+            text-align: left;
+            justify-content: flex-start;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            margin-top: -90px;
+            padding-top: 90px;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            padding: 40px;
+            padding-top: 54px;
+            width: 55%;
+            max-width: 700px;
+            margin-left: 5%;
+        }
+
+        .hero-content h1 {
+            font-family: var(--font-secondary);
+            font-size: 56px;
+            margin: 0 0 20px 0;
+            font-weight: 700;
+            line-height: 1.2;
+            color: #FFFFFF;
+            text-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        }
+
+        .hero-content p {
+            font-size: 22px;
+            color: #F0F0F0;
+            margin: 0 0 35px 0;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+            font-weight: 500;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: flex-start;
+            flex-wrap: wrap;
+        }
+        
+        /* Section À propos */
+        #about .container {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-image-placeholder {
+            width: 100%;
+            aspect-ratio: 4/5;
+            max-height: 500px;
+            background-color: #f0f0f0;
+            border-radius: var(--border-radius-lg);
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+        }
+
+        .about-image-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+        }
+        
+        .experience-badge {
+            position: absolute;
+            bottom: 30px;
+            right: 30px;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            z-index: 2;
+        }
+        .experience-badge .years {
+            display: block;
+            font-size: 30px;
+            font-weight: 700;
+            line-height: 1;
+        }
+        .experience-badge .text {
+            font-size: 14px;
+        }
+
+        .about-content h3 {
+            font-family: var(--font-secondary);
+            font-size: 24px;
+            margin-top: 0;
+            color: var(--text-dark);
+        }
+
+        .about-content p {
+            color: var(--text-light);
+            line-height: 1.8;
+            margin-bottom: 25px;
+        }
+        
+        .advantages-list {
+            list-style: none;
+            padding: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 25px;
+        }
+        
+        .advantages-list li {
+            background-color: var(--background-soft-green);
+            padding: 15px;
+            border-radius: var(--border-radius-md);
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .advantages-list li:hover {
+            border-color: var(--primary-color);
+            transform: translateX(5px);
+        }
+        
+        /* Section Services */
+        #services {
+            background-color: var(--background-light-grey);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background-color: var(--background-white);
+            padding: 35px 30px;
+            border-radius: var(--border-radius-lg);
+            text-align: center;
+            transition: var(--transition-smooth);
+            box-shadow: var(--shadow-sm);
+            border: 2px solid transparent;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--primary-color);
+        }
+
+        .service-card .icon-placeholder {
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 20px;
+            background: linear-gradient(135deg, var(--background-soft-green) 0%, var(--secondary-color) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover .icon-placeholder {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .service-card .icon-placeholder i {
+            font-size: 32px;
+            color: var(--primary-color);
+        }
+
+        .service-card h4 {
+            font-family: var(--font-secondary);
+            font-size: 20px;
+            margin: 15px 0 10px;
+            color: var(--text-dark);
+        }
+
+        .service-card p {
+            color: var(--text-light);
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        /* Section Équipe */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 35px;
+        }
+
+        .team-member {
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .team-member:hover {
+            transform: translateY(-8px);
+        }
+        
+        .team-member .photo-placeholder {
+            width: 100%;
+            height: 280px;
+            background-color: #e0e0e0;
+            background-size: cover;
+            background-position: center top;
+            border-radius: var(--border-radius-lg);
+            margin-bottom: 15px;
+            transition: var(--transition-smooth);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .member-1 { background-image: url('img/Team\ member\ 3.jpg'); }
+        .member-2 { background-image: url('img/Team\ member\ 1.jpg'); }
+        .member-3 { background-image: url('img/Team\ member\ 4.jpg'); }
+        .member-4 { background-image: url('img/Team\ member\ 2.jpg'); }
+
+        .team-member:hover .photo-placeholder {
+            box-shadow: var(--shadow-md);
+        }
+        
+        .team-member h4 {
+            font-family: var(--font-secondary);
+            margin: 10px 0 5px;
+            font-size: 20px;
+            color: var(--text-dark);
+        }
+        
+        .team-member p {
+            color: var(--text-light);
+            margin: 0;
+            font-weight: 500;
+        }
+        
+        /* Section Témoignages */
+        #testimonials {
+            background: linear-gradient(135deg, var(--background-soft-green) 0%, #E8F5F1 100%);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background-color: var(--background-white);
+            padding: 30px;
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition-smooth);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            text-align: left;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .testimonial-card .stars {
+            color: #FFC107;
+            font-size: 20px;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+        }
+
+        .testimonial-card p {
+            font-size: 16px;
+            color: var(--text-dark);
+            line-height: 1.6;
+            font-style: italic;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .client-info {
+            display: flex;
+            align-items: center;
+            border-top: 1px solid #eee;
+            padding-top: 15px;
+        }
+
+        .client-avatar {
+            width: 50px;
+            height: 50px;
+            background-color: var(--secondary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            color: white;
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        .client-details h4 {
+            margin: 0;
+            font-family: var(--font-secondary);
+            font-size: 16px;
+            color: var(--primary-color);
+        }
+
+        .client-details span {
+            font-size: 13px;
+            color: var(--text-light);
+        }
+        
+        /* Section Contact */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 50px;
+            align-items: flex-start;
+        }
+        
+        .contact-form .form-row {
+            display: flex;
+            gap: 20px;
+        }
+
+        .contact-form .form-group {
+            margin-bottom: 20px;
+            flex: 1;
+        }
+
+        .contact-form input, 
+        .contact-form textarea, 
+        .contact-form select {
+            width: 100%;
+            padding: 15px;
+            border-radius: var(--border-radius-md);
+            border: 2px solid #E0E0E0;
+            font-family: var(--font-primary);
+            font-size: 16px;
+            transition: var(--transition-smooth);
+            box-sizing: border-box;
+        }
+
+        .contact-form input:focus, 
+        .contact-form textarea:focus, 
+        .contact-form select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(0, 122, 94, 0.1);
+        }
+
+        .contact-info {
+            background: linear-gradient(135deg, var(--background-soft-green) 0%, #E8F5F1 100%);
+            padding: 35px;
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .contact-info h4 {
+            font-family: var(--font-secondary);
+            margin-top: 0;
+            margin-bottom: 25px;
+            font-size: 24px;
+            color: var(--text-dark);
+        }
+
+        .contact-info-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+            font-size: 16px;
+            transition: transform 0.3s ease;
+        }
+
+        .contact-info-item:hover {
+            transform: translateX(5px);
+        }
+
+        .contact-info-item i {
+            font-size: 20px;
+            color: var(--primary-color);
+            margin-right: 15px;
+            width: 25px;
+            text-align: center;
+            margin-top: 2px;
+        }
+        
+        .map-container {
+            width: 100%;
+            height: 300px;
+            border-radius: var(--border-radius-lg);
+            overflow: hidden;
+            margin-top: 25px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            background-color: #eee;
+        }
+
+        /* Pied de page */
+        .footer {
+            background: linear-gradient(135deg, #1a1a1a 0%, var(--text-dark) 100%);
+            color: #E0E0E0;
+            padding: 80px 0 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1.5fr 1fr;
+            gap: 50px;
+            margin-bottom: 60px;
+        }
+        
+        .footer-grid h4 {
+            font-family: var(--font-secondary);
+            color: white;
+            margin-bottom: 20px;
+            font-size: 20px;
+        }
+
+        .footer-grid a, 
+        .footer-grid p {
+            color: #B0B0B0;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 12px;
+            transition: color 0.3s ease;
+            line-height: 1.6;
+        }
+        
+        .footer-grid a:hover {
+            color: var(--primary-color) !important;
+            padding-left: 5px;
+        }
+
+        .footer-copyright {
+            text-align: center;
+            border-top: 1px solid #444;
+            padding-top: 30px;
+            font-size: 14px;
+            color: var(--text-light);
+        }
+        
+        .social-icons a {
+            display: inline-block;
+            margin-right: 15px;
+            font-size: 20px;
+            color: #B0B0B0;
+        }
+        
+        .social-icons a:hover {
+            color: var(--primary-color) !important;
+            transform: translateY(-3px);
+        }
+
+        /* Message de succès */
+        .success-message {
+            display: none;
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px;
+            border-radius: var(--border-radius-md);
+            margin-bottom: 20px;
+            text-align: center;
+            animation: slideIn 0.5s ease;
+        }
+
+        .success-message.show {
+            display: block;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Design Responsive */
+        @media (max-width: 968px) {
+            .header {
+                flex-wrap: wrap;
+                padding: 10px 20px;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                background-color: white;
+                padding: 20px;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+                border-radius: 0 0 20px 20px;
+                text-align: center;
+                gap: 15px;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .btn-primary.header-btn {
+                display: none;
+            }
+
+            #home {
+                background: linear-gradient(rgba(0, 40, 30, 0.7), rgba(0, 40, 30, 0.7)), url('https://images.unsplash.com/photo-1581578731548-c64695cc6952?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+                background-size: cover;
+                background-position: center top;
+                justify-content: center;
+                text-align: center;
+            }
+
+            .hero-content {
+                width: 100%;
+                max-width: 100%;
+                margin-left: 0;
+                padding: 20px;
+                padding-top: 100px;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .hero-content h1 {
+                font-size: 42px;
+            }
+
+            #about .container {
+                grid-template-columns: 1fr;
+            }
+            
+            .about-image-placeholder {
+                aspect-ratio: 16/9;
+                max-height: 400px;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .section-header h2 {
+                font-size: 28px;
+            }
+            
+            .hero-content h1 {
+                font-size: 32px;
+            }
+
+            .hero-content p {
+                font-size: 16px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .contact-form .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
+            
+            .about-image-placeholder {
+                aspect-ratio: 1/1;
+            }
+            
+            .btn {
+                width: 100%;
+                margin-bottom: 10px;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+
+        /* Bouton de retour en haut */
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: var(--primary-color);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition-smooth);
+            z-index: 999;
+        }
+
+        .scroll-top.show {
+            display: flex;
+        }
+
+        .scroll-top:hover {
+            transform: translateY(-5px);
+            background-color: #006349;
+        }
+    </style>
+</head>
+<body>
+    <!-- En-tête du site -->
+    <header class="header">
+        <div class="logo">
+            <i class="fas fa-spray-can"></i>
+            PrimeClean
+        </div>
+        <button class="mobile-menu-btn" onclick="toggleMenu()">
+            <i class="fas fa-bars"></i>
+        </button>
+        <nav class="nav-links">
+            <a href="#home">Accueil</a>
+            <a href="#about">À Propos</a>
+            <a href="#services">Services</a>
+            <a href="#team">Équipe</a>
+            <a href="#testimonials">Avis</a>
+            <a href="#contact">Contact</a>
+            <a href="#contact" class="btn btn-primary" style="margin-top: 10px; color: white;">Devis Gratuit</a>
+        </nav>
+        <a href="#contact" class="btn btn-primary header-btn" style="display: none;">Devis Gratuit</a>
+        <style>@media(min-width: 969px) { .header-btn { display: inline-block !important; } .nav-links .btn { display: none; } }</style>
+    </header>
+
+    <!-- Contenu principal -->
+    <main>
+        <!-- Section Hero -->
+        <section id="home">
+            <div class="hero-content">
+                <h1 class="animate-on-scroll">Expertise de Nettoyage au Maroc</h1>
+                <p class="animate-on-scroll" style="transition-delay: 0.1s;">De Tanger à Lagouira, nous transformons vos résidences et espaces commerciaux. Une équipe dévouée et des produits écologiques.</p>
+                <div class="hero-buttons animate-on-scroll" style="transition-delay: 0.2s;">
+                    <a href="#contact" class="btn btn-primary">Demander un Devis</a>
+                    <a href="#services" class="btn btn-secondary">Nos Services</a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Section À propos -->
+        <section id="about" class="section">
+            <div class="container">
+                <div class="about-image-placeholder animate-on-scroll">
+                    <img src="img/Team 3.png" alt="Équipe professionnelle de nettoyage">
+                    <div class="experience-badge">
+                        <span class="years">15+</span>
+                        <span class="text">Années d'excellence</span>
+                    </div>
+                </div>
+                <div class="about-content animate-on-scroll" style="transition-delay: 0.1s;">
+                    <span style="color: var(--primary-color); font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">À Propos de Nous</span>
+                    <h2 style="font-family: var(--font-secondary); font-size: 38px; margin: 15px 0;">Le Leader du Nettoyage au Maroc</h2>
+                    <p>Chez PrimeClean Solutions, notre personnel est notre plus grande force. Nos équipes sont formées aux standards internationaux d'hygiène et de sécurité, utilisant des équipements modernes pour garantir un résultat impeccable.</p>
+                    <ul class="advantages-list">
+                        <li>Entreprise Agréée</li>
+                        <li>Personnel Formé & Assuré</li>
+                        <li>Produits 100% Écologiques</li>
+                        <li>Intervention Rapide</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Services -->
+        <section id="services" class="section">
+            <div class="container">
+                <div class="section-header animate-on-scroll">
+                    <h2>Nos Services</h2>
+                    <p>Une gamme complète de prestations pour particuliers et professionnels.</p>
+                </div>
+                <div class="services-grid">
+                    <div class="service-card animate-on-scroll">
+                        <div class="icon-placeholder"><i class="fas fa-home"></i></div>
+                        <h4>Nettoyage Résidentiel</h4>
+                        <p>Grand ménage de villas et appartements.</p>
+                    </div>
+                    <div class="service-card animate-on-scroll" style="transition-delay: 0.1s;">
+                        <div class="icon-placeholder"><i class="fas fa-building"></i></div>
+                        <h4>Bureaux & Sociétés</h4>
+                        <p>Entretien quotidien ou hebdomadaire.</p>
+                    </div>
+                    <div class="service-card animate-on-scroll" style="transition-delay: 0.2s;">
+                        <div class="icon-placeholder"><i class="fas fa-city"></i></div>
+                        <h4>Syndics & Immeubles</h4>
+                        <p>Nettoyage des parties communes.</p>
+                    </div>
+                    <div class="service-card animate-on-scroll" style="transition-delay: 0.3s;">
+                        <div class="icon-placeholder"><i class="fas fa-window-maximize"></i></div>
+                        <h4>Vitres & Façades</h4>
+                        <p>Nettoyage professionnel en hauteur.</p>
+                    </div>
+                    <div class="service-card animate-on-scroll">
+                        <div class="icon-placeholder"><i class="fas fa-couch"></i></div>
+                        <h4>Tapis & Canapés</h4>
+                        <p>Shampouinage et désinfection.</p>
+                    </div>
+                    <div class="service-card animate-on-scroll" style="transition-delay: 0.1s;">
+                        <div class="icon-placeholder"><i class="fas fa-bug"></i></div>
+                        <h4>Dératisation</h4>
+                        <p>Traitement contre les nuisibles (3D).</p>
+                    </div>
+                    <div class="service-card animate-on-scroll" style="transition-delay: 0.2s;">
+                        <div class="icon-placeholder"><i class="fas fa-swimming-pool"></i></div>
+                        <h4>Piscines & Jardins</h4>
+                        <p>Entretien des espaces extérieurs.</p>
+                    </div>
+                    <div class="service-card animate-on-scroll" style="transition-delay: 0.3s;">
+                        <div class="icon-placeholder"><i class="fas fa-broom"></i></div>
+                        <h4>Fin de Chantier</h4>
+                        <p>Remise en état après travaux.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Équipe -->
+        <section id="team" class="section">
+            <div class="container">
+                <div class="section-header animate-on-scroll">
+                    <h2>Notre Équipe</h2>
+                    <p>Des experts dévoués à votre satisfaction.</p>
+                </div>
+                <div class="team-grid">
+                    <div class="team-member animate-on-scroll">
+                        <div class="photo-placeholder member-1"></div>
+                        <h4>Sarah Benali</h4>
+                        <p>Directrice Générale</p>
+                    </div>
+                    <div class="team-member animate-on-scroll" style="transition-delay: 0.1s;">
+                        <div class="photo-placeholder member-2"></div>
+                        <h4>Ahmed El Amrani</h4>
+                        <p>Chef d'Équipe Technique</p>
+                    </div>
+                    <div class="team-member animate-on-scroll" style="transition-delay: 0.2s;">
+                        <div class="photo-placeholder member-3"></div>
+                        <h4>Fatima Zahra</h4>
+                        <p>Responsable Qualité</p>
+                    </div>
+                    <div class="team-member animate-on-scroll" style="transition-delay: 0.3s;">
+                        <div class="photo-placeholder member-4"></div>
+                        <h4>Youssef Alami</h4>
+                        <p>Superviseur Commercial</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Témoignages -->
+        <section id="testimonials" class="section">
+            <div class="container">
+                <div class="section-header animate-on-scroll">
+                    <h2>Ce Que Disent Nos Clients</h2>
+                    <p>La satisfaction de nos clients à travers le Maroc est notre priorité.</p>
+                </div>
+                <div class="testimonials-grid">
+                    <div class="testimonial-card animate-on-scroll">
+                        <div class="stars">★★★★★</div>
+                        <p>"J'ai fait appel à PrimeClean pour le nettoyage de fin de chantier de ma villa à Rabat. Le résultat est bluffant, tout brille !"</p>
+                        <div class="client-info">
+                            <div class="client-avatar">M</div>
+                            <div class="client-details">
+                                <h4>Meriem El Fassi</h4>
+                                <span>Particulier, Rabat</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card animate-on-scroll" style="transition-delay: 0.1s;">
+                        <div class="stars">★★★★★</div>
+                        <p>"Service de nettoyage de bureaux très professionnel. Les équipes sont ponctuelles et discrètes. Je recommande pour les sociétés."</p>
+                        <div class="client-info">
+                            <div class="client-avatar">K</div>
+                            <div class="client-details">
+                                <h4>Karim Tazi</h4>
+                                <span>DG TechSoft, Casa</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card animate-on-scroll" style="transition-delay: 0.2s;">
+                        <div class="stars">★★★★★</div>
+                        <p>"Excellent travail sur le nettoyage de nos tapis et canapés. Ils ont retrouvé leur couleur d'origine. Merci pour votre sérieux."</p>
+                        <div class="client-info">
+                            <div class="client-avatar">Y</div>
+                            <div class="client-details">
+                                <h4>Yassine Berrada</h4>
+                                <span>Architecte, Marrakech</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Contact -->
+        <section id="contact" class="section">
+            <div class="container">
+                <div class="section-header animate-on-scroll">
+                    <h2>Contactez-Nous</h2>
+                    <p>Obtenez un devis gratuit en moins de 24h</p>
+                </div>
+                <div class="contact-grid">
+                    <div class="contact-form animate-on-scroll">
+                        <div class="success-message" id="successMessage">
+                            Merci ! Votre message a été envoyé avec succès. Nous vous contacterons bientôt.
+                        </div>
+                        <form id="contactForm">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <input type="text" placeholder="Votre Nom *" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" placeholder="Votre Email *" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <input type="tel" placeholder="Téléphone (+212) *" required>
+                                </div>
+                                <div class="form-group">
+                                    <select required>
+                                        <option value="">Sélectionner un Service *</option>
+                                        <option value="residential">Nettoyage Résidentiel</option>
+                                        <option value="commercial">Bureaux & Commercial</option>
+                                        <option value="building">Immeubles & Propriétés</option>
+                                        <option value="windows">Vitres & Verre</option>
+                                        <option value="outdoor">Extérieurs & Jardins</option>
+                                        <option value="pest">Dératisation</option>
+                                        <option value="pool">Piscines</option>
+                                        <option value="construction">Fin de Chantier</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <textarea rows="5" placeholder="Détails de votre demande (Ville, Surface, etc.) *" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary" style="width: 100%;">Envoyer le Message</button>
+                        </form>
+                    </div>
+                    <div class="contact-info animate-on-scroll" style="transition-delay: 0.1s;">
+                        <h4>Informations de Contact</h4>
+                        <div class="contact-info-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>123 Boulevard Mohammed V<br>Casablanca 20000, Maroc</span>
+                        </div>
+                        <div class="contact-info-item">
+                            <i class="fas fa-phone"></i>
+                            <span>+212 522 00 00 00</span>
+                        </div>
+                        <div class="contact-info-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>contact@primeclean.ma</span>
+                        </div>
+                        <div class="contact-info-item">
+                            <i class="fas fa-clock"></i>
+                            <span>Lun - Sam: 8h00 - 18h00<br>Dimanche: Sur Rendez-vous</span>
+                        </div>
+                        
+                        <div class="map-container">
+                           <iframe 
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3323.846431945199!2d-7.616335684797435!3d33.58327498073504!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xda7d29944326573%3A0x6280456e30076249!2sBd%20Mohammed%20V%2C%20Casablanca%2020250!5e0!3m2!1sfr!2sma!4v1714150000000!5m2!1sfr!2sma" 
+                                width="100%" 
+                                height="100%" 
+                                style="border:0;" 
+                                allowfullscreen="" 
+                                loading="lazy" 
+                                referrerpolicy="no-referrer-when-downgrade">
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Pied de page -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h4>PrimeClean Solutions</h4>
+                    <p>Votre expert en nettoyage professionnel au Maroc. Nous allions technologie moderne et produits écologiques pour des résultats éclatants à Casablanca, Rabat et partout au Royaume.</p>
+                    <div class="social-icons" style="margin-top: 20px;">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4>Navigation</h4>
+                    <a href="#home">Accueil</a>
+                    <a href="#about">À Propos</a>
+                    <a href="#services">Nos Services</a>
+                    <a href="#testimonials">Avis Clients</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                <div>
+                    <h4>Nos Expertises</h4>
+                    <a href="#services">Nettoyage de Bureaux</a>
+                    <a href="#services">Nettoyage Industriel</a>
+                    <a href="#services">Grand Ménage Villas</a>
+                    <a href="#services">Nettoyage de Façades</a>
+                    <a href="#services">Dératisation & Désinfection</a>
+                </div>
+                <div>
+                    <h4>Contactez-nous</h4>
+                    <p>123 Bd Mohammed V<br>Casablanca, Maroc</p>
+                    <p>+212 522 00 00 00</p>
+                    <p>contact@primeclean.ma</p>
+                </div>
+            </div>
+            <div class="footer-copyright">
+                © 2024 PrimeClean Solutions. Tous droits réservés.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bouton de retour en haut -->
+    <div class="scroll-top" id="scrollTop" onclick="scrollToTop()">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <!-- Scripts JavaScript -->
+    <script>
+        // Fonction pour afficher/masquer le menu mobile
+        function toggleMenu() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        }
+
+        // Fonction pour les animations au défilement
+        function revealOnScroll() {
+            const elements = document.querySelectorAll('.animate-on-scroll');
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                if (elementTop < windowHeight - 100) {
+                    element.classList.add('is-visible');
+                }
+            });
+        }
+
+        // Effet de défilement sur l'en-tête
+        function handleHeaderScroll() {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        }
+
+        // Gestion du bouton de retour en haut
+        function handleScrollTopButton() {
+            const scrollTop = document.getElementById('scrollTop');
+            if (window.scrollY > 300) {
+                scrollTop.classList.add('show');
+            } else {
+                scrollTop.classList.remove('show');
+            }
+        }
+
+        // Fonction pour remonter en haut de la page
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Gestion de la soumission du formulaire
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const successMessage = document.getElementById('successMessage');
+            successMessage.classList.add('show');
+            this.reset();
+            
+            setTimeout(() => {
+                successMessage.classList.remove('show');
+            }, 5000);
+        });
+
+        // Défilement fluide pour les liens de navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offsetTop = target.offsetTop - 100;
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                    document.querySelector('.nav-links').classList.remove('active');
+                }
+            });
+        });
+
+        // Écouteurs d'événements
+        window.addEventListener('scroll', () => {
+            revealOnScroll();
+            handleHeaderScroll();
+            handleScrollTopButton();
+        });
+
+        window.addEventListener('load', revealOnScroll);
+    </script>
+</body>
+</html>
